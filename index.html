@@ -3,25 +3,61 @@
   <head>
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
+    <script src="main.css"></script>
+    <style>
+     body{
+       background-image: url(img2.jpg);
+       background-size: cover;
+       background-attachment: fixed;
+     }
+      p {
+       font-size: 65px;
+       color: black;
+       margin-left: 590px;
+       position: relative;
+      
+       
+     } 
+     #division{
+       background-color: black;
+       color: white;
+       font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+       width: 50%;
+       margin: 100px auto;
+     }
+     #btn{
+       background-color: black;
+       color: blanchedalmond;
+       position: center;
+       font-family: Georgia;
+       font-size: 30px;
+       margin-right: 100px;
+       
+     }
+    </style>
   </head>
   <body>
-    <script>
-
-      $(document).ready(function(){
-        var $body = $('body');
-        $body.html('');
-
+    <p>The Tweets</p>
+    <button id='btn'>click here</button>
+    <div id='division'></div>
+        <div class="background">
+        </div>
+  <script>
+          
+          $('#btn').click(function displayTweets(){
+        var $body = $('#division');
+           $body.html('');
         var index = streams.home.length - 1;
         while(index >= 0){
           var tweet = streams.home[index];
           var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
+          $tweet.text('@' + tweet.user + ': ' + tweet.message + '' + tweet.created_at);
           $tweet.appendTo($body);
           index -= 1;
         }
 
       });
-
+        
     </script>
   </body>
 </html>
